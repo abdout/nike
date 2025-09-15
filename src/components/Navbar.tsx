@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import { Search, ShoppingCart, AlignJustify, X } from "lucide-react";
+import { Search, ShoppingCart, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { type Dictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
@@ -109,7 +109,9 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
             {open ? (
               <X size={24} className="text-dark-900" />
             ) : (
-              <AlignJustify size={24} className="text-dark-900" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" d="M4 8h16M4 16h16"/>
+              </svg>
             )}
           </button>
         </div>
