@@ -30,7 +30,7 @@ export default function Sort({ dictionary }: SortProps) {
 
   return (
     <label className="inline-flex items-center gap-2">
-      <span className="text-body text-dark-900">{dictionary.sort.sortBy}</span>
+      <span className="text-body text-dark-900">{dictionary.sort.title}</span>
       <select
         className="rounded-md border border-light-300 bg-light-100 py-2 text-body pl-2 pr-10 rtl:pl-10 rtl:pr-2"
         value={selected}

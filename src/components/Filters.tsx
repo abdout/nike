@@ -4,41 +4,43 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { getArrayParam, removeParams, toggleArrayParam } from "@/lib/utils/query";
 import { type Dictionary } from "@/components/internationalization/dictionaries";
+import { type Locale } from "@/components/internationalization/config";
 
 interface FiltersProps {
   dictionary: Dictionary;
+  lang?: Locale;
 }
 
 type GroupKey = "gender" | "size" | "color" | "price";
 
-export default function Filters({ dictionary }: FiltersProps) {
+export default function Filters({ dictionary, lang = 'en' }: FiltersProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const search = useMemo(() => `?${searchParams.toString()}`, [searchParams]);
 
   const GENDERS = [
-    { id: "men", label: dictionary.filters.men },
-    { id: "women", label: dictionary.filters.women },
-    { id: "unisex", label: dictionary.filters.unisex },
+    { id: "men", label: dictionary.filters.genderMen },
+    { id: "women", label: dictionary.filters.genderWomen },
+    { id: "unisex", label: dictionary.filters.genderUnisex },
   ] as const;
 
   const SIZES = ["XS", "S", "M", "L", "XL"] as const;
 
   const COLORS = [
-    { id: "black", label: dictionary.filters.black },
-    { id: "white", label: dictionary.filters.white },
-    { id: "red", label: dictionary.filters.red },
-    { id: "green", label: dictionary.filters.green },
-    { id: "blue", label: dictionary.filters.blue },
-    { id: "grey", label: dictionary.filters.grey },
+    { id: "black", label: dictionary.filters.colorBlack },
+    { id: "white", label: dictionary.filters.colorWhite },
+    { id: "red", label: dictionary.filters.colorRed },
+    { id: "green", label: dictionary.filters.colorGreen },
+    { id: "blue", label: dictionary.filters.colorBlue },
+    { id: "grey", label: dictionary.filters.colorGrey },
   ] as const;
 
   const PRICES = [
-    { id: "0-50", label: `0 - 50 ${dictionary.product.currency}` },
-    { id: "50-100", label: `50 - 100 ${dictionary.product.currency}` },
-    { id: "100-150", label: `100 - 150 ${dictionary.product.currency}` },
-    { id: "150-", label: `${dictionary.filters.over} 150 ${dictionary.product.currency}` },
+    { id: "0-50", label: `0 - 50 ${dictionary.common.currency}` },
+    { id: "50-100", label: `50 - 100 ${dictionary.common.currency}` },
+    { id: "100-150", label: `100 - 150 ${dictionary.common.currency}` },
+    { id: "150-", label: `${lang === 'ar' ? 'أكثر من' : 'Over'} 150 ${dictionary.common.currency}` },
   ] as const;
 
   const [open, setOpen] = useState(false);
@@ -103,7 +105,7 @@ export default function Filters({ dictionary }: FiltersProps) {
           onClick={() => setOpen(true)}
           aria-haspopup="dialog"
         >
-          {dictionary.filters.filters}
+          {dictionary.filters.title}
         </button>
         <button className="text-caption text-dark-700 underline" onClick={clearAll}>
           {dictionary.filters.clearAll}
@@ -112,7 +114,7 @@ export default function Filters({ dictionary }: FiltersProps) {
 
       <aside className="sticky top-20 hidden h-fit min-w-60 rounded-lg border border-light-300 bg-light-100 p-4 md:block">
         <div className="mb-2 flex items-center justify-between">
-          <h3 className="text-body-medium text-dark-900">{dictionary.filters.filters}</h3>
+          <h3 className="text-body-medium text-dark-900">{dictionary.filters.title}</h3>
           <button className="text-caption text-dark-700 underline" onClick={clearAll}>
             {dictionary.filters.clearAll}
           </button>
@@ -215,7 +217,7 @@ export default function Filters({ dictionary }: FiltersProps) {
           />
           <div className="absolute inset-y-0 left-0 w-80 max-w-[80%] overflow-auto bg-light-100 p-4 shadow-xl">
             <div className="mb-2 flex items-center justify-between">
-              <h3 className="text-body-medium">{dictionary.filters.filters}</h3>
+              <h3 className="text-body-medium">{dictionary.filters.title}</h3>
               <button className="text-caption text-dark-700 underline" onClick={clearAll}>
                 {dictionary.filters.clearAll}
               </button>
