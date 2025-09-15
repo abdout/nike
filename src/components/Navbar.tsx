@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { Search, ShoppingCart, AlignJustify } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Search, ShoppingCart, AlignJustify, X } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { type Dictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
@@ -15,6 +15,30 @@ interface NavbarProps {
 
 export default function Navbar({ dictionary, lang }: NavbarProps) {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  // Click outside handler
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        buttonRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [open]);
 
   const NAV_LINKS = [
     { label: dictionary.navigation.men, href: `/${lang}/products?gender=men` },
@@ -74,19 +98,25 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
         <div className="flex items-center gap-2 md:hidden">
           <LanguageSwitcher currentLocale={lang} />
           <button
+            ref={buttonRef}
             type="button"
             className="inline-flex items-center justify-center rounded-md p-2"
             aria-controls="mobile-menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
           >
-            <span className="sr-only">{dictionary.navigation.menu}</span>
-            <AlignJustify size={24} className="text-dark-900" />
+            <span className="sr-only">{open ? dictionary.navigation.close : dictionary.navigation.menu}</span>
+            {open ? (
+              <X size={24} className="text-dark-900" />
+            ) : (
+              <AlignJustify size={24} className="text-dark-900" />
+            )}
           </button>
         </div>
       </nav>
 
       <div
+        ref={menuRef}
         id="mobile-menu"
         className={`border-t border-light-300 md:hidden ${open ? "block" : "hidden"}`}
       >
@@ -102,12 +132,14 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
               </Link>
             </li>
           ))}
-          <li className="flex items-center justify-between pt-2">
-            <button className="flex items-center gap-2 text-body" aria-label={dictionary.navigation.search}>
+          <li className="pt-2 border-t border-light-300">
+            <button className="flex items-center gap-2 py-2 text-body w-full text-left" aria-label={dictionary.navigation.search}>
               <Search size={20} />
               {dictionary.navigation.search}
             </button>
-            <button className="relative flex items-center gap-2 text-body" aria-label={dictionary.navigation.cart}>
+          </li>
+          <li>
+            <button className="relative flex items-center gap-2 py-2 text-body w-full text-left" aria-label={dictionary.navigation.cart}>
               <ShoppingCart size={20} />
               {dictionary.navigation.cart}
               <span className="bg-[#d33918] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ml-1">
