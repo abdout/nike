@@ -42,12 +42,12 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
           </Link>
         </p>
         <h1 className="mt-3 text-heading-3 text-dark-900">
-          {mode === "sign-in" ? dictionary.auth.welcomeBack : dictionary.auth.joinNike}
+          {mode === "sign-in" ? dictionary.auth.signIn : dictionary.auth.signUp}
         </h1>
         <p className="mt-1 text-body text-dark-700">
           {mode === "sign-in"
-            ? dictionary.auth.signInToContinue
-            : dictionary.auth.createAccount}
+            ? dictionary.auth.dontHaveAccount
+            : dictionary.auth.alreadyHaveAccount}
         </p>
       </div>
 
@@ -56,7 +56,7 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
       <div className="flex items-center gap-4">
         <hr className="h-px w-full border-0 bg-light-300" />
         <span className="shrink-0 text-caption text-dark-700">
-          {dictionary.auth.orSignWith}
+          {lang === 'ar' ? 'أو' : 'OR'}
         </span>
         <hr className="h-px w-full border-0 bg-light-300" />
       </div>
@@ -74,7 +74,7 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
               id="name"
               name="name"
               type="text"
-              placeholder={dictionary.auth.enterYourName}
+              placeholder={dictionary.auth.name}
               className="w-full rounded-xl border border-light-300 bg-light-100 px-4 py-3 text-body text-dark-900 placeholder:text-dark-500 focus:outline-none focus:ring-2 focus:ring-dark-900/10"
               autoComplete="name"
             />
@@ -89,7 +89,7 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
             id="email"
             name="email"
             type="email"
-            placeholder={dictionary.auth.emailPlaceholder}
+            placeholder={dictionary.auth.email}
             className="w-full rounded-xl border border-light-300 bg-light-100 px-4 py-3 text-body text-dark-900 placeholder:text-dark-500 focus:outline-none focus:ring-2 focus:ring-dark-900/10"
             autoComplete="email"
             required
@@ -105,7 +105,7 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
               id="password"
               name="password"
               type={show ? "text" : "password"}
-              placeholder={dictionary.auth.passwordPlaceholder}
+              placeholder={dictionary.auth.password}
               className="w-full rounded-xl border border-light-300 bg-light-100 px-4 py-3 pr-12 text-body text-dark-900 placeholder:text-dark-500 focus:outline-none focus:ring-2 focus:ring-dark-900/10"
               autoComplete={mode === "sign-in" ? "current-password" : "new-password"}
               minLength={8}
@@ -115,9 +115,9 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
               type="button"
               className="absolute inset-y-0 right-0 px-3 text-caption text-dark-700"
               onClick={() => setShow((v) => !v)}
-              aria-label={show ? dictionary.auth.hidePassword : dictionary.auth.showPassword}
+              aria-label={show ? "Hide password" : "Show password"}
             >
-              {show ? dictionary.auth.hide : dictionary.auth.show}
+              {show ? "Hide" : "Show"}
             </button>
           </div>
         </div>
@@ -131,13 +131,13 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
 
         {mode === "sign-up" && (
           <p className="text-center text-footnote text-dark-700">
-            {dictionary.auth.bySigningUp}{" "}
+            {lang === 'ar' ? 'بالتسجيل، فإنك توافق على' : 'By signing up, you agree to our'}{" "}
             <a href={`/${lang}`} className="underline">
-              {dictionary.auth.termsOfService}
+              {lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}
             </a>{" "}
-            {dictionary.auth.and}{" "}
+            {lang === 'ar' ? 'و' : 'and'}{" "}
             <a href={`/${lang}`} className="underline">
-              {dictionary.auth.privacyPolicy}
+              {lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
             </a>
           </p>
         )}

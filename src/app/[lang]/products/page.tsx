@@ -1,4 +1,4 @@
-import { Card, RiyalSymbol } from "@/components";
+import { Card } from "@/components";
 import Filters from "@/components/Filters";
 import Sort from "@/components/Sort";
 import { parseFilterParams } from "@/lib/utils/query";
@@ -57,23 +57,18 @@ export default async function ProductsPage({
       )}
 
       <section className="grid grid-cols-1 gap-6 md:grid-cols-[240px_1fr]">
-        <Filters dictionary={dictionary} />
+        <Filters dictionary={dictionary} lang={lang} />
         <div>
           {products.length === 0 ? (
             <div className="rounded-lg border border-light-300 p-8 text-center">
-              <p className="text-body text-dark-700">{dictionary.product.noProducts}</p>
+              <p className="text-body text-dark-700">{dictionary.filters.noProductsFound}</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-6">
               {products.map((p) => {
                 const price =
                   p.minPrice !== null && p.maxPrice !== null && p.minPrice !== p.maxPrice
-                    ? (
-                        <span className="flex items-center gap-1">
-                          <RiyalSymbol size={14} />
-                          {p.minPrice.toFixed(2)} - {p.maxPrice.toFixed(2)}
-                        </span>
-                      )
+                    ? `${p.minPrice.toFixed(2)} - ${p.maxPrice.toFixed(2)}`
                     : p.minPrice !== null
                     ? p.minPrice
                     : undefined;
