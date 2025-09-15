@@ -115,7 +115,7 @@ export default async function ProductDetailPage({
       <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <nav className="py-4 text-caption text-dark-700">
           <Link href={`/${lang}`} className="hover:underline">{dictionary.navigation.home}</Link> / <Link href={`/${lang}/products`} className="hover:underline">{dictionary.navigation.products}</Link> /{" "}
-          <span className="text-dark-900">{dictionary.product.notFound}</span>
+          <span className="text-dark-900">{dictionary.product.productNotFound}</span>
         </nav>
         <NotFoundBlock dictionary={dictionary} lang={lang} />
       </main>
