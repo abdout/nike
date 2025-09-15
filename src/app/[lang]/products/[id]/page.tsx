@@ -218,7 +218,7 @@ export default async function ProductDetailPage({
           <Suspense
             fallback={
               <CollapsibleSection title={dictionary.product.reviews}>
-                <p className="text-body text-dark-700">{dictionary.product.loadingReviews}…</p>
+                <p className="text-body text-dark-700">{dictionary.common.loading}</p>
               </CollapsibleSection>
             }
           >
