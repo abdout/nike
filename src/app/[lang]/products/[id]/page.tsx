@@ -186,7 +186,7 @@ export default async function ProductDetailPage({
                 <span className="text-body text-dark-700 line-through">{formatPrice(compareAt)}</span>
                 {discount !== null && (
                   <span className="rounded-full border border-light-300 px-2 py-1 text-caption text-[--color-green]">
-                    {discount}% {dictionary.product.off}
+                    {discount}% {dictionary.common.off}
                   </span>
                 )}
               </>
