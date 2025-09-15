@@ -26,8 +26,8 @@ export default function Hero({ dictionary, lang }: HeroProps) {
       <div className="relative z-10 h-full flex items-center">
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
-            {/* Hero Shoe Image - Right for AR, Left for EN */}
-            <div className={`flex justify-center ${isRTL ? 'lg:order-2 lg:justify-end' : 'lg:order-1 lg:justify-start'}`}>
+            {/* Hero Shoe Image - Right for both AR and EN */}
+            <div className={`flex justify-center ${isRTL ? 'lg:order-2 lg:justify-end' : 'lg:order-2 lg:justify-end'}`}>
               <img
                 src="/hero-shoe.png"
                 alt="Nike Air Jordan Sneaker"
@@ -35,8 +35,8 @@ export default function Hero({ dictionary, lang }: HeroProps) {
               />
             </div>
 
-            {/* Text Content - Left for AR, Right for EN */}
-            <div className={`max-w-2xl ${isRTL ? 'lg:order-1' : 'lg:order-2'}`}>
+            {/* Text Content - Left for both AR and EN */}
+            <div className={`max-w-2xl ${isRTL ? 'lg:order-1' : 'lg:order-1'}`}>
               <div className="text-[#d33918] text-xs font-semibold tracking-wide uppercase mb-4">
                 {dictionary.home.heroTagline}
               </div>

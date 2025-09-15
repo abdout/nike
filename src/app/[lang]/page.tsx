@@ -56,7 +56,7 @@ export default async function HomePage({
         </section>
       </main>
       <Trend dictionary={dictionary} lang={lang} />
-      <BottomHero />
+      <BottomHero dictionary={dictionary} lang={lang} />
     </>
   );
 }
