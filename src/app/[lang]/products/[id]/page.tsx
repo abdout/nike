@@ -139,7 +139,7 @@ export default async function ProductDetailPage({
       .map((img) => img.url);
 
     return {
-      color: v.color?.name || dictionary.product.defaultColor,
+      color: v.color?.name || dictionary.product.colour,
       images: imgs.length ? imgs : fallback,
     };
   }).filter((gv) => gv.images.length > 0);
