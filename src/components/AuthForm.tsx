@@ -56,7 +56,7 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
       <div className="flex items-center gap-4">
         <hr className="h-px w-full border-0 bg-light-300" />
         <span className="shrink-0 text-caption text-dark-700">
-          {lang === 'ar' ? 'أو' : 'OR'}
+          {dictionary.auth.or}
         </span>
         <hr className="h-px w-full border-0 bg-light-300" />
       </div>
@@ -115,9 +115,9 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
               type="button"
               className="absolute inset-y-0 right-0 px-3 text-caption text-dark-700"
               onClick={() => setShow((v) => !v)}
-              aria-label={show ? "Hide password" : "Show password"}
+              aria-label={show ? dictionary.auth.hidePassword : dictionary.auth.showPassword}
             >
-              {show ? "Hide" : "Show"}
+              {show ? dictionary.auth.hide : dictionary.auth.show}
             </button>
           </div>
         </div>
@@ -131,13 +131,13 @@ export default function AuthForm({ mode, onSubmit, dictionary, lang }: Props) {
 
         {mode === "sign-up" && (
           <p className="text-center text-footnote text-dark-700">
-            {lang === 'ar' ? 'بالتسجيل، فإنك توافق على' : 'By signing up, you agree to our'}{" "}
+            {dictionary.auth.bySigningUp}{" "}
             <a href={`/${lang}`} className="underline">
-              {lang === 'ar' ? 'شروط الخدمة' : 'Terms of Service'}
+              {dictionary.auth.termsOfService}
             </a>{" "}
-            {lang === 'ar' ? 'و' : 'and'}{" "}
+            {dictionary.auth.and}{" "}
             <a href={`/${lang}`} className="underline">
-              {lang === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy'}
+              {dictionary.auth.privacyPolicy}
             </a>
           </p>
         )}

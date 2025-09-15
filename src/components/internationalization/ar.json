@@ -17,7 +17,13 @@
     "inStock": "متوفر",
     "new": "جديد",
     "sale": "تخفيض",
-    "off": "خصم"
+    "off": "خصم",
+    "switchToEnglish": "التحويل إلى الإنجليزية",
+    "switchToArabic": "التحويل إلى العربية",
+    "sortProducts": "ترتيب المنتجات",
+    "nike": "نايكي",
+    "nikeHome": "الصفحة الرئيسية لنايكي",
+    "primary": "رئيسي"
   },
   "navigation": {
     "home": "الرئيسية",
@@ -45,7 +51,19 @@
     "continueWithGoogle": "المتابعة مع Google",
     "continueWithApple": "المتابعة مع Apple",
     "signUpWithGoogle": "التسجيل عبر Google",
-    "signUpWithApple": "التسجيل عبر Apple"
+    "signUpWithApple": "التسجيل عبر Apple",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور",
+    "show": "إظهار",
+    "hide": "إخفاء",
+    "or": "أو",
+    "bySigningUp": "بالتسجيل، فإنك توافق على",
+    "termsOfService": "شروط الخدمة",
+    "and": "و",
+    "privacyPolicy": "سياسة الخصوصية",
+    "justDoIt": "افعلها فقط",
+    "joinAthletes": "انضم إلى ملايين الرياضيين وعشاق اللياقة البدنية الذين يثقون في نايكي لتلبية احتياجاتهم الرياضية.",
+    "copyright": "© 2025 نايكي. جميع الحقوق محفوظة."
   },
   "product": {
     "title": "المنتجات",
@@ -69,7 +87,16 @@
     "sizeGuide": "دليل المقاسات",
     "addToBag": "أضف إلى السلة",
     "favorite": "المفضلة",
-    "shareProduct": "مشاركة المنتج"
+    "shareProduct": "مشاركة المنتج",
+    "productImage": "صورة المنتج",
+    "previousImage": "الصورة السابقة",
+    "nextImage": "الصورة التالية",
+    "noImagesAvailable": "لا توجد صور متاحة",
+    "thumbnail": "صورة مصغرة",
+    "chooseColor": "اختر اللون",
+    "color": "اللون",
+    "highQualityShoes": "أحذية رياضية عالية الجودة",
+    "modernComfortableDesign": "تصميم عصري ومريح"
   },
   "filters": {
     "title": "الفلاتر",

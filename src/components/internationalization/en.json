@@ -17,7 +17,13 @@
     "inStock": "In Stock",
     "new": "New",
     "sale": "Sale",
-    "off": "off"
+    "off": "off",
+    "switchToEnglish": "Switch to English",
+    "switchToArabic": "Switch to Arabic",
+    "sortProducts": "Sort products",
+    "nike": "Nike",
+    "nikeHome": "Nike Home",
+    "primary": "Primary"
   },
   "navigation": {
     "home": "Home",
@@ -45,7 +51,19 @@
     "continueWithGoogle": "Continue with Google",
     "continueWithApple": "Continue with Apple",
     "signUpWithGoogle": "Sign up with Google",
-    "signUpWithApple": "Sign up with Apple"
+    "signUpWithApple": "Sign up with Apple",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password",
+    "show": "Show",
+    "hide": "Hide",
+    "or": "OR",
+    "bySigningUp": "By signing up, you agree to our",
+    "termsOfService": "Terms of Service",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "justDoIt": "Just Do It",
+    "joinAthletes": "Join millions of athletes and fitness enthusiasts who trust Nike for their performance needs.",
+    "copyright": "© 2025 Nike. All rights reserved."
   },
   "product": {
     "title": "Products",
@@ -69,7 +87,16 @@
     "sizeGuide": "Size Guide",
     "addToBag": "Add to Bag",
     "favorite": "Favorite",
-    "shareProduct": "Share Product"
+    "shareProduct": "Share Product",
+    "productImage": "Product image",
+    "previousImage": "Previous image",
+    "nextImage": "Next image",
+    "noImagesAvailable": "No images available",
+    "thumbnail": "Thumbnail",
+    "chooseColor": "Choose color",
+    "color": "Color",
+    "highQualityShoes": "High quality sports shoes",
+    "modernComfortableDesign": "Modern and comfortable design"
   },
   "filters": {
     "title": "Filters",
