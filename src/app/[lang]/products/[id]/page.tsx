@@ -22,8 +22,8 @@ function formatPrice(price: number | null | undefined) {
 function NotFoundBlock({ dictionary, lang }: { dictionary: Dictionary; lang: Locale }) {
   return (
     <section className="mx-auto max-w-3xl rounded-xl border border-light-300 bg-light-100 p-8 text-center">
-      <h1 className="text-heading-3 text-dark-900">{dictionary.product.notFound}</h1>
-      <p className="mt-2 text-body text-dark-700">{dictionary.product.notFoundDescription}</p>
+      <h1 className="text-heading-3 text-dark-900">{dictionary.product.productNotFound}</h1>
+      <p className="mt-2 text-body text-dark-700">{dictionary.product.productNotFoundDesc}</p>
       <div className="mt-6">
         <Link
           href={`/${lang}/products`}
