@@ -21,12 +21,6 @@ export interface CardProps {
   lang?: Locale;
 }
 
-const toneToBg: Record<BadgeTone, string> = {
-  red: "text-[--color-red]",
-  green: "text-[--color-green]",
-  orange: "text-[--color-orange]",
-};
-
 export default function Card({
   title,
   description,
@@ -36,7 +30,6 @@ export default function Card({
   imageAlt = title,
   price,
   href,
-  badge,
   className = "",
   dictionary,
   lang,

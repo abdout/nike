@@ -4,7 +4,7 @@ import { Card, CollapsibleSection, ProductGallery, SizePicker, RiyalSymbol } fro
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import ColorSwatches from "@/components/ColorSwatches";
 import { getProduct, getProductReviews, getRecommendedProducts, type Review, type RecommendedProduct } from "@/lib/actions/product";
-import { getDictionary } from "@/components/internationalization/dictionaries";
+import { getDictionary, type Dictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
 
 type GalleryVariant = { color: string; images: string[] };
@@ -19,7 +19,7 @@ function formatPrice(price: number | null | undefined) {
   );
 }
 
-function NotFoundBlock({ dictionary, lang }: { dictionary: any; lang: Locale }) {
+function NotFoundBlock({ dictionary, lang }: { dictionary: Dictionary; lang: Locale }) {
   return (
     <section className="mx-auto max-w-3xl rounded-xl border border-light-300 bg-light-100 p-8 text-center">
       <h1 className="text-heading-3 text-dark-900">{dictionary.product.notFound}</h1>
@@ -36,7 +36,7 @@ function NotFoundBlock({ dictionary, lang }: { dictionary: any; lang: Locale }) 
   );
 }
 
-async function ReviewsSection({ productId, dictionary }: { productId: string; dictionary: any }) {
+async function ReviewsSection({ productId, dictionary }: { productId: string; dictionary: Dictionary }) {
   const reviews: Review[] = await getProductReviews(productId);
   const count = reviews.length;
   const avg =
@@ -78,7 +78,7 @@ async function ReviewsSection({ productId, dictionary }: { productId: string; di
   );
 }
 
-async function AlsoLikeSection({ productId, dictionary, lang }: { productId: string; dictionary: any; lang: Locale }) {
+async function AlsoLikeSection({ productId, dictionary, lang }: { productId: string; dictionary: Dictionary; lang: Locale }) {
   const recs: RecommendedProduct[] = await getRecommendedProducts(productId);
   if (!recs.length) return null;
   return (

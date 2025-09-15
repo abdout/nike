@@ -10,7 +10,7 @@ const dictionaries = {
 export const getDictionary = async (locale: Locale) => {
   try {
     return await (dictionaries[locale]?.() ?? dictionaries["en"]());
-  } catch (error) {
+  } catch {
     console.warn(`Failed to load dictionary for locale: ${locale}. Falling back to en.`);
     return await dictionaries["en"]();
   }
