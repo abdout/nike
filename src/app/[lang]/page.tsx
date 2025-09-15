@@ -9,10 +9,11 @@ import { getDictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
 
 export default async function HomePage({
-  params: { lang },
+  params,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
 }) {
+  const { lang } = await params;
   const user = await getCurrentUser();
   const dictionary = await getDictionary(lang);
   const { products } = await getAllProducts({

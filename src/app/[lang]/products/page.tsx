@@ -9,12 +9,13 @@ import { type Locale } from "@/components/internationalization/config";
 type SearchParams = Record<string, string | string[] | undefined>;
 
 export default async function ProductsPage({
-  params: { lang },
+  params,
   searchParams,
 }: {
-  params: { lang: Locale };
+  params: Promise<{ lang: Locale }>;
   searchParams: Promise<SearchParams>;
 }) {
+  const { lang } = await params;
   const sp = await searchParams;
   const dictionary = await getDictionary(lang);
 
