@@ -95,7 +95,8 @@
     "priceRange4": "Over 150 SAR",
     "clearAll": "Clear All",
     "apply": "Apply",
-    "noProductsFound": "No products match your filters."
+    "noProductsFound": "No products match your filters.",
+    "over": "Over"
   },
   "sort": {
     "title": "Sort By",
@@ -173,7 +174,14 @@
     "heroTagline": "Bold & Sporty",
     "heroMainTitle": "Style That Moves With You.",
     "heroDescription": "Not just style. Not just comfort. Footwear that effortlessly moves with your every step.",
-    "findYourShoe": "Find Your Shoe"
+    "findYourShoe": "Find Your Shoe",
+    "reactPresto": "REACT PRESTO",
+    "reactPrestoDesc": "With React foam for the most comfortable Presto ever.",
+    "summerMustHaves": "Summer Must-Haves: Air Max Dia",
+    "airJordan11": "Air Jordan 11 Retro Low LE",
+    "nikeReact": "NIKE REACT",
+    "prestoByYou": "PRESTO BY YOU",
+    "reactDescription": "Take advantage of brand new, proprietary cushioning technology with a fresh pair of Nike react shoes."
   },
   "account": {
     "myAccount": "My Account",

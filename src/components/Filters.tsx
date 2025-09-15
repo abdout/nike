@@ -40,7 +40,7 @@ export default function Filters({ dictionary, lang = 'en' }: FiltersProps) {
     { id: "0-50", label: `0 - 50 ${dictionary.common.currency}` },
     { id: "50-100", label: `50 - 100 ${dictionary.common.currency}` },
     { id: "100-150", label: `100 - 150 ${dictionary.common.currency}` },
-    { id: "150-", label: `${lang === 'ar' ? 'أكثر من' : 'Over'} 150 ${dictionary.common.currency}` },
+    { id: "150-", label: `${dictionary.filters.over} 150 ${dictionary.common.currency}` },
   ] as const;
 
   const [open, setOpen] = useState(false);
