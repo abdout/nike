@@ -32,7 +32,7 @@ export default async function ProductsPage({
   );
   (sp.price ? (Array.isArray(sp.price) ? sp.price : [sp.price]) : []).forEach((p) => {
     const [min, max] = String(p).split("-");
-    const label = min && max ? `${min} - ${max} ${dictionary.product.currency}` : min && !max ? `${dictionary.filters.over} ${min} ${dictionary.product.currency}` : `0 - ${max} ${dictionary.product.currency}`;
+    const label = min && max ? `${min} - ${max} ${dictionary.common.currency}` : min && !max ? `${dictionary.filters.over} ${min} ${dictionary.common.currency}` : `0 - ${max} ${dictionary.common.currency}`;
     activeBadges.push(label);
   });
 
