@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { Search, ShoppingCart } from "lucide-react";
+import { Search, ShoppingCart, AlignJustify } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { type Dictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
@@ -70,18 +70,20 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
           <LanguageSwitcher currentLocale={lang} />
         </div>
 
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 md:hidden"
-          aria-controls="mobile-menu"
-          aria-expanded={open}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <span className="sr-only">{dictionary.navigation.menu}</span>
-          <span className="mb-1 block h-0.5 w-6 bg-dark-900"></span>
-          <span className="mb-1 block h-0.5 w-6 bg-dark-900"></span>
-          <span className="block h-0.5 w-6 bg-dark-900"></span>
-        </button>
+        {/* Mobile Actions - Language Switcher and Menu */}
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageSwitcher currentLocale={lang} />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-md p-2"
+            aria-controls="mobile-menu"
+            aria-expanded={open}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <span className="sr-only">{dictionary.navigation.menu}</span>
+            <AlignJustify size={24} className="text-dark-900" />
+          </button>
+        </div>
       </nav>
 
       <div
@@ -112,9 +114,6 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
                 0
               </span>
             </button>
-          </li>
-          <li className="pt-2">
-            <LanguageSwitcher currentLocale={lang} />
           </li>
         </ul>
       </div>
