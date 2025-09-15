@@ -212,7 +212,7 @@ export default async function ProductDetailPage({
           </CollapsibleSection>
 
           <CollapsibleSection title={dictionary.product.shippingReturns}>
-            <p>{dictionary.product.shippingReturnsText}</p>
+            <p>{dictionary.product.shippingReturnsDesc}</p>
           </CollapsibleSection>
 
           <Suspense
