@@ -14,17 +14,17 @@ function getLocale(request: NextRequest) {
   const headers = {
     'accept-language': request.headers.get('accept-language') ?? '',
   };
-  
+
   // Use negotiator to parse preferred languages
   const languages = new Negotiator({ headers }).languages();
-  
+
   // Match against supported locales
   return match(languages, i18n.locales, i18n.defaultLocale);
 }
 
-export function localizationMiddleware(request: NextRequest) {
+export function localizationProxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  
+
   // Check if pathname already has a locale
   const pathnameHasLocale = i18n.locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
@@ -37,17 +37,17 @@ export function localizationMiddleware(request: NextRequest) {
 
   // Get best matching locale
   const locale = getLocale(request);
-  
+
   // Redirect to localized URL
   request.nextUrl.pathname = `/${locale}${pathname}`;
   const response = NextResponse.redirect(request.nextUrl);
-  
+
   // Set cookie for future visits
   response.cookies.set('NEXT_LOCALE', locale, {
     maxAge: 365 * 24 * 60 * 60, // 1 year
     sameSite: 'lax',
     secure: process.env.NODE_ENV === 'production',
   });
-  
+
   return response;
 }
