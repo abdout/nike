@@ -42,8 +42,15 @@ export default async function LocaleLayout({
 
   return (
     <LocaleProvider>
+      {/* Skip link for accessibility - WCAG 2.4.1 */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:bg-dark-900 focus:px-4 focus:py-2 focus:text-light-100 focus:top-0 focus:start-0"
+      >
+        {dictionary.common.skipToContent}
+      </a>
       <Navbar dictionary={dictionary} lang={lang} />
-      <main className="min-h-screen">
+      <main id="main-content" className="min-h-screen">
         {children}
       </main>
       <Footer dictionary={dictionary} lang={lang} />

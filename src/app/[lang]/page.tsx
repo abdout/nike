@@ -3,7 +3,6 @@ import { Card } from "@/components";
 import Hero from "@/components/site/hero";
 import Trend from "@/components/site/trend";
 import BottomHero from "@/components/site/bottom-hero";
-import { getCurrentUser } from "@/lib/auth/actions";
 import { getAllProducts } from "@/lib/actions/product";
 import { getDictionary } from "@/components/internationalization/dictionaries";
 import { type Locale } from "@/components/internationalization/config";
@@ -14,7 +13,6 @@ export default async function HomePage({
   params: Promise<{ lang: Locale }>;
 }) {
   const { lang } = await params;
-  const user = await getCurrentUser();
   const dictionary = await getDictionary(lang);
   const { products } = await getAllProducts({
     page: 1,
@@ -28,8 +26,6 @@ export default async function HomePage({
     colorSlugs: [],
     priceRanges: []
   });
-
-  console.log('USER:', user);
 
   return (
     <>

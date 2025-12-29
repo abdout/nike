@@ -87,7 +87,7 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
             aria-label={dictionary.navigation.cart}
           >
             <ShoppingCart size={20} />
-            <span className="absolute -top-1 -right-1 bg-[#d33918] text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+            <span className="absolute -top-1 -end-1 bg-red text-light-100 text-xs rounded-full h-4 w-4 flex items-center justify-center">
               0
             </span>
           </button>
@@ -141,10 +141,10 @@ export default function Navbar({ dictionary, lang }: NavbarProps) {
             </button>
           </li>
           <li>
-            <button className="relative flex items-center gap-2 py-2 text-body w-full text-left" aria-label={dictionary.navigation.cart}>
+            <button className="relative flex items-center gap-2 py-2 text-body w-full text-start" aria-label={dictionary.navigation.cart}>
               <ShoppingCart size={20} />
               {dictionary.navigation.cart}
-              <span className="bg-[#d33918] text-white text-xs rounded-full h-5 w-5 flex items-center justify-center ml-1">
+              <span className="bg-red text-light-100 text-xs rounded-full h-5 w-5 flex items-center justify-center ms-1">
                 0
               </span>
             </button>

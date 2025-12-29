@@ -37,16 +37,16 @@ export default function Hero({ dictionary, lang }: HeroProps) {
 
             {/* Text Content - Left for both AR and EN */}
             <div className={`max-w-2xl ${isRTL ? 'lg:order-1' : 'lg:order-1'}`}>
-              <div className="text-[#d33918] text-xs font-semibold tracking-wide uppercase mb-4">
+              <div className="text-red text-xs font-semibold tracking-wide uppercase mb-4">
                 {dictionary.home.heroTagline}
               </div>
-              <h1 className="text-[#111111] text-3xl lg:text-5xl font-bold leading-tight mb-4">
+              <h1 className="text-dark-900 text-3xl lg:text-5xl font-bold leading-tight mb-4">
                 {dictionary.home.heroMainTitle}
               </h1>
-              <p className="text-[#111111] text-base leading-relaxed max-w-lg mb-6">
+              <p className="text-dark-900 text-base leading-relaxed max-w-lg mb-6">
                 {dictionary.home.heroDescription}
               </p>
-              <button className="bg-[#111111] text-[#ffffff] hover:bg-[#757575] px-8 py-3 rounded-full transition-colors text-base font-medium">
+              <button className="bg-dark-900 text-light-100 hover:bg-dark-700 px-8 py-3 rounded-full transition-colors text-base font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-dark-500 focus-visible:ring-offset-2">
                 {dictionary.home.findYourShoe}
               </button>
             </div>
